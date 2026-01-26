@@ -1,0 +1,38 @@
+# ---- .NET / Visual Studio ----
+bin/
+obj/
+.vs/
+*.user
+*.rsuser
+*.suo
+*.cache
+*.vscode/
+
+# ---- Build artifacts ----
+*.dll
+*.exe
+*.db
+*.sqlite
+*.mdf
+*.ldf
+
+# ---- Logs ----
+*.log
+
+# ---- Node / React ----
+node_modules/
+dist/
+build/
+
+# ---- Environment files ----
+.env
+.env.local
+
+# ---- SQLite ----
+*.db
+*.sqlite
+
+# ---- Temporary files ----
+*.tmp
+*.temp
+Thumbs.db
