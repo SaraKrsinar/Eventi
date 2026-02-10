@@ -22,11 +22,12 @@ builder.Services.AddSwaggerGen(c =>
 
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowAll", policy =>
+    options.AddPolicy("AllowVercel", policy =>
     {
-        policy.AllowAnyOrigin()
-              .AllowAnyMethod()
-              .AllowAnyHeader();
+        policy
+            .WithOrigins("https://eventi-nine.vercel.app")
+            .AllowAnyHeader()
+            .AllowAnyMethod();
     });
 });
 
@@ -46,9 +47,8 @@ builder.Services.AddScoped<IEventTemplateService, EventTemplateService>();
 
 var app = builder.Build();
 
-if (app.Environment.IsDevelopment())
+using (var scope = app.Services.CreateScope())
 {
-    using var scope = app.Services.CreateScope();
     var db = scope.ServiceProvider.GetRequiredService<EventiDbContext>();
     db.Database.Migrate();
     await EventiDbSeeder.SeedAsync(scope.ServiceProvider);
@@ -58,10 +58,13 @@ app.UseSwagger();
 app.UseSwaggerUI(c =>
 {
     c.SwaggerEndpoint("/swagger/v1/swagger.json", "Eventi API v1");
+    c.RoutePrefix = string.Empty;
 });
 
-app.UseHttpsRedirection();
-app.UseCors("AllowAll");
+app.UseRouting();
+
+app.UseCors("AllowVercel");
+
 app.UseAuthorization();
 
 app.MapControllers();
