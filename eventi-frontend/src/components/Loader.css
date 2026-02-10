@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+.loader-wrapper {
+    @apply flex items-center justify-center min-h-[50vh];
+}
+
+.loader-ring {
+    @apply relative w-12 h-12 rounded-full border-4 border-pink-200 border-t-pink-500 animate-spin;
+}
+
+.loader-core {
+    @apply absolute inset-0 m-auto w-6 h-6 rounded-full bg-linear-to-r from-pink-300 to-pink-500 animate-pulse;
+}

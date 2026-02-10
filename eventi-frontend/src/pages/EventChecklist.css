@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+.event-checklist {
+    @apply min-h-screen bg-linear-to-br from-pink-50 to-white py-16 px-4;
+}
+
+.event-container {
+    @apply max-w-2xl mx-auto;
+}
+
+.event-header {
+    @apply mb-10;
+}
+
+.event-title {
+    @apply text-3xl font-bold text-gray-900;
+}
+
+.event-subtitle {
+    @apply mt-2 text-gray-500;
+}
+
+.back-link {
+    @apply inline-block mb-6 text-sm text-gray-500 hover:text-pink-600 transition;
+}
+
+.section {
+    @apply mb-10;
+}
+
+.section-title {
+    @apply text-sm font-semibold text-gray-800 mb-4;
+}
+
+.section-count {
+    @apply ml-2 text-pink-500;
+}
+
+.empty-text {
+    @apply text-sm text-gray-500;
+}
+
+.task-list {
+    @apply space-y-3;
+}
+
+.completed-list {
+    @apply space-y-3 opacity-80;
+}
+
+.add-task-form {
+    @apply flex gap-3 mb-12;
+}
+
+.add-task-input {
+    @apply flex-1 rounded-xl border border-pink-200 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-pink-200;
+}
+
+.add-task-button {
+    @apply rounded-xl bg-pink-500 px-5 py-3 text-sm font-semibold text-white hover:bg-pink-600 transition disabled:opacity-50;
+}

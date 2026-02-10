@@ -15,9 +15,6 @@ public class EventsController : ControllerBase
         _eventService = eventService;
     }
 
-    /// <summary>
-    /// Creates a new event and automatically generates default tasks based on event type.
-    /// </summary>
     [HttpPost]
     public async Task<ActionResult<EventResponse>> CreateEvent([FromBody] CreateEventRequest request)
     {
@@ -25,9 +22,6 @@ public class EventsController : ControllerBase
         return CreatedAtAction(nameof(GetEventById), new { id = result.Id }, result);
     }
 
-    /// <summary>
-    /// Returns all events with their tasks.
-    /// </summary>
     [HttpGet]
     public async Task<ActionResult<List<EventResponse>>> GetAllEvents()
     {
@@ -35,9 +29,6 @@ public class EventsController : ControllerBase
         return Ok(events);
     }
 
-    /// <summary>
-    /// Returns a single event with its tasks.
-    /// </summary>
     [HttpGet("{id:guid}")]
     public async Task<ActionResult<EventResponse>> GetEventById(Guid id)
     {
@@ -46,5 +37,27 @@ public class EventsController : ControllerBase
             return NotFound();
 
         return Ok(eventResponse);
+    }
+
+    [HttpPut("{id:guid}")]
+    public async Task<ActionResult<EventResponse>> UpdateEvent(
+        Guid id,
+        [FromBody] UpdateEventRequest request)
+    {
+        var updated = await _eventService.UpdateEventAsync(id, request);
+        if (updated == null)
+            return NotFound();
+
+        return Ok(updated);
+    }
+
+    [HttpDelete("{id:guid}")]
+    public async Task<IActionResult> DeleteEvent(Guid id)
+    {
+        var deleted = await _eventService.DeleteEventAsync(id);
+        if (!deleted)
+            return NotFound();
+
+        return NoContent();
     }
 }

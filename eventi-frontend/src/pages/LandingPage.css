@@ -1,0 +1,147 @@
+.landing-root {
+  min-height: 100vh;
+  color: #1f2937;
+  background: linear-gradient(135deg,
+      #fdf2f8,
+      #ffffff,
+      #fff1f2);
+}
+
+.landing-hero {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 7rem 1.5rem 6rem;
+  text-align: center;
+}
+
+.landing-hero h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.landing-hero h1 span {
+  display: block;
+  color: #ec4899;
+}
+
+.landing-hero p {
+  max-width: 42rem;
+  margin: 0 auto 2.5rem;
+  font-size: 1.125rem;
+  color: #6b7280;
+}
+
+.landing-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  padding: 1rem 2rem;
+  border-radius: 0.75rem;
+  background-color: #ec4899;
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 10px 25px rgba(236, 72, 153, 0.25);
+  transition: all 0.2s ease;
+}
+
+.btn-primary:hover {
+  background-color: #db2777;
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  padding: 1rem 2rem;
+  border-radius: 0.75rem;
+  border: 1px solid #fbcfe8;
+  color: #ec4899;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.btn-secondary:hover {
+  background-color: #fdf2f8;
+}
+
+.section {
+  max-width: 64rem;
+  margin: 0 auto;
+  padding: 5rem 1.5rem;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 1.875rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+
+.section-title span {
+  color: #ec4899;
+}
+
+.section-text {
+  max-width: 48rem;
+  margin: 0 auto 3rem;
+  text-align: center;
+  color: #6b7280;
+}
+
+.features {
+  display: grid;
+  gap: 2rem;
+}
+
+@media (min-width: 640px) {
+  .features {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.feature-card {
+  background: white;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  border: 1px solid #fce7f3;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
+}
+
+.feature-card:hover {
+  box-shadow: 0 10px 20px rgba(236, 72, 153, 0.15);
+  transform: translateY(-2px);
+}
+
+.feature-card h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.feature-card p {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.final-section {
+  text-align: center;
+  padding: 6rem 1.5rem;
+}
+
+.final-section h2 {
+  font-size: 1.875rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.final-section p {
+  margin-top: 1rem;
+  font-size: 0.875rem;
+  color: #6b7280;
+}

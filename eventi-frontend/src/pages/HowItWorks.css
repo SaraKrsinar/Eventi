@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+.how-root {
+    @apply min-h-screen bg-linear-to-br from-pink-50 to-white;
+}
+
+.how-hero {
+    @apply max-w-4xl mx-auto pt-28 pb-16 px-6 text-center;
+}
+
+.how-hero h1 {
+    @apply text-4xl font-bold mb-4;
+}
+
+.how-hero p {
+    @apply text-gray-600 text-lg;
+}
+
+.how-steps {
+    @apply max-w-4xl mx-auto px-6 grid gap-8;
+}
+
+.how-step {
+    @apply bg-white rounded-2xl p-6 border border-pink-100 shadow-sm;
+}
+
+.how-step span {
+    @apply text-4xl font-bold text-pink-200;
+}
+
+.how-step h3 {
+    @apply text-xl font-semibold mt-2 mb-1;
+}
+
+.how-step p {
+    @apply text-gray-600;
+}
+
+.how-cta {
+    @apply text-center py-20;
+}
+
+.how-cta h2 {
+    @apply text-2xl font-bold mb-6;
+}

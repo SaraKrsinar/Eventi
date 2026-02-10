@@ -15,9 +15,6 @@ public class TasksController : ControllerBase
         _taskService = taskService;
     }
 
-    /// <summary>
-    /// Add a custom task to an event.
-    /// </summary>
     [HttpPost("events/{eventId:guid}/tasks")]
     public async Task<ActionResult<TaskResponse>> CreateTask(Guid eventId, [FromBody] CreateTaskRequest request)
     {
@@ -25,9 +22,6 @@ public class TasksController : ControllerBase
         return CreatedAtAction(nameof(GetTasksByEventId), new { eventId }, result);
     }
 
-    /// <summary>
-    /// Get all tasks for an event.
-    /// </summary>
     [HttpGet("events/{eventId:guid}/tasks")]
     public async Task<ActionResult<List<TaskResponse>>> GetTasksByEventId(Guid eventId)
     {
@@ -35,9 +29,6 @@ public class TasksController : ControllerBase
         return Ok(tasks);
     }
 
-    /// <summary>
-    /// Mark a task as completed.
-    /// </summary>
     [HttpPatch("tasks/{taskId:guid}/complete")]
     public async Task<ActionResult<TaskResponse>> CompleteTask(Guid taskId)
     {

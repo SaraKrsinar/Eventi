@@ -1,26 +1,39 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Navbar from '../components/Navbar';
-import Dashboard from '../pages/Dashboard';
-import CreateEvent from '../pages/CreateEvent';
-import EventDetails from '../pages/EventDetails';
-import TasksPage from '../pages/TasksPage';
-import NotFound from '../pages/NotFound';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+
+import LandingLayout from '../layouts/LandingLayout'
+import AppLayout from '../layouts/AppLayout'
+import LandingPage from '../pages/LandingPage'
+import Dashboard from '../pages/Dashboard'
+import CreateEvent from '../pages/CreateEvent'
+import EventDetails from '../pages/EventDetails'
+import EventChecklist from '../pages/EventChecklist'
+import HowItWorks from '../pages/HowItWorks'
+import NotFound from '../pages/NotFound'
 
 const AppRouter = () => {
   return (
     <BrowserRouter>
-      <div className="min-h-screen bg-linear-to-br from-pink-50 to-white">
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Dashboard />} />
+      <Routes>
+        <Route path="/" element={<Navigate to="/home" replace />} />
+
+        <Route element={<LandingLayout />}>
+          <Route path="/home" element={<LandingPage />} />
+        </Route>
+
+        <Route element={<AppLayout />}>
+          <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/create" element={<CreateEvent />} />
           <Route path="/event/:id" element={<EventDetails />} />
-          <Route path="/event/:id/tasks" element={<TasksPage />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </div>
-    </BrowserRouter>
-  );
-};
+          <Route path="/event/:id/checklist" element={<EventChecklist />} />
+          <Route path="/event/:id/edit" element={<CreateEvent />} />
 
-export default AppRouter;
+          <Route path="/how-it-works" element={<HowItWorks />} />
+        </Route>
+
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </BrowserRouter>
+  )
+}
+
+export default AppRouter

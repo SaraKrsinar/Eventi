@@ -1,0 +1,29 @@
+@import "tailwindcss";
+
+.app-navbar {
+    @apply fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-pink-100 shadow-sm;
+}
+
+.app-navbar-container {
+    @apply max-w-7xl mx-auto px-6 h-16 flex justify-between items-center;
+}
+
+.app-logo {
+    @apply text-2xl font-bold text-pink-500 hover:opacity-90 transition;
+}
+
+.app-navbar-actions {
+    @apply flex gap-2;
+}
+
+.nav-link {
+    @apply px-4 py-2 rounded-xl text-gray-600 hover:bg-pink-50 transition;
+}
+
+.nav-link.active {
+    @apply bg-pink-100 text-pink-600;
+}
+
+.create-btn {
+    @apply px-4 py-2 bg-pink-500 text-white rounded-xl hover:bg-pink-600 transition;
+}

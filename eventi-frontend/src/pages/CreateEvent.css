@@ -1,0 +1,43 @@
+@import "tailwindcss";
+
+.create-event-page {
+    @apply min-h-screen bg-pink-50 py-8;
+}
+
+.create-event-container {
+    @apply max-w-2xl mx-auto px-4;
+}
+
+.create-event-form {
+    @apply bg-white p-8 rounded-2xl shadow-lg space-y-6;
+}
+
+.create-event-form h1 {
+    @apply text-3xl font-bold text-center text-gray-800;
+}
+
+.form-error {
+    @apply text-red-500 text-sm text-center;
+}
+
+.create-event-form input {
+    @apply w-full px-4 py-3 rounded-xl border border-pink-200 focus:outline-none focus:ring-2 focus:ring-pink-200 focus:border-pink-400 transition;
+}
+
+.event-types {
+    @apply grid gap-3 justify-center;
+    grid-template-columns: repeat(auto-fit, minmax(96px, max-content));
+}
+
+.event-type.active {
+    @apply border-pink-500 bg-pink-50 text-pink-600;
+}
+
+.event-type svg,
+.event-type img {
+    @apply w-6 h-6;
+}
+
+.create-event-form button[type='submit'] {
+    @apply w-full bg-pink-500 text-white py-3 rounded-xl font-medium hover:bg-pink-600 transition disabled:opacity-50 disabled:cursor-not-allowed;
+}

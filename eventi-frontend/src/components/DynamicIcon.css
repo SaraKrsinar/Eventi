@@ -1,0 +1,5 @@
+@import "tailwindcss";
+
+.dynamic-icon {
+    @apply select-none;
+}

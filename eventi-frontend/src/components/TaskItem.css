@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+.task-item {
+    @apply flex justify-between items-center p-4 rounded-xl border border-pink-100 bg-white hover:shadow-md transition;
+}
+
+.task-item.completed {
+    @apply bg-green-50 border-green-200;
+}
+
+.task-left {
+    @apply flex items-center gap-4;
+}
+
+.task-checkbox {
+    @apply w-6 h-6 rounded-full border-2 border-pink-300 flex items-center justify-center text-white hover:border-pink-500 transition;
+}
+
+.task-item.completed .task-checkbox {
+    @apply bg-green-500 border-green-500;
+}
+
+.task-title {
+    @apply font-medium text-gray-700;
+}
+
+.task-item.completed .task-title {
+    @apply line-through text-gray-400;
+}
+
+.task-status {
+    @apply px-3 py-1 rounded-full text-xs font-medium;
+}
+
+.task-status.pending {
+    @apply bg-pink-100 text-pink-600;
+}
+
+.task-status.done {
+    @apply bg-green-100 text-green-600;
+}

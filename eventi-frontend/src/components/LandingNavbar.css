@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+.landing-navbar {
+    @apply fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-pink-100;
+}
+
+.landing-navbar-container {
+    @apply max-w-6xl mx-auto px-6 py-4 flex justify-between items-center;
+}
+
+.landing-logo {
+    @apply text-2xl font-bold text-pink-500;
+}
+
+.open-app-btn {
+    @apply px-6 py-2 bg-pink-500 text-white rounded-xl shadow-lg shadow-pink-200 hover:bg-pink-600 transition;
+}

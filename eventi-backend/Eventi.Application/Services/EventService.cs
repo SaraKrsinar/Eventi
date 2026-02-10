@@ -35,7 +35,6 @@ public class EventService : IEventService
 
         await _eventRepository.AddAsync(eventEntity);
 
-        // Generate default tasks based on event type
         var defaultTasks = _templateService.GetDefaultTasksForEventType(request.EventType);
         foreach (var taskTitle in defaultTasks)
         {
@@ -46,6 +45,7 @@ public class EventService : IEventService
                 IsCompleted = false,
                 EventId = eventEntity.Id
             };
+
             await _taskRepository.AddAsync(task);
             eventEntity.Tasks.Add(task);
         }
@@ -63,6 +63,33 @@ public class EventService : IEventService
     {
         var eventEntity = await _eventRepository.GetByIdAsync(id);
         return eventEntity == null ? null : MapToResponse(eventEntity);
+    }
+
+    public async Task<EventResponse?> UpdateEventAsync(Guid id, UpdateEventRequest request)
+    {
+        var eventEntity = await _eventRepository.GetByIdAsync(id);
+        if (eventEntity == null)
+            return null;
+
+        eventEntity.Name = request.Name;
+        eventEntity.EventType = request.EventType;
+        eventEntity.Date = request.Date;
+        eventEntity.City = request.City;
+        eventEntity.GuestCount = request.GuestCount;
+        eventEntity.Budget = request.Budget;
+
+        await _eventRepository.UpdateAsync(eventEntity);
+        return MapToResponse(eventEntity);
+    }
+
+    public async Task<bool> DeleteEventAsync(Guid id)
+    {
+        var eventEntity = await _eventRepository.GetByIdAsync(id);
+        if (eventEntity == null)
+            return false;
+
+        await _eventRepository.DeleteAsync(id);
+        return true;
     }
 
     private static EventResponse MapToResponse(Event eventEntity)
