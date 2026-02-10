@@ -49,22 +49,16 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     using var scope = app.Services.CreateScope();
-
     var db = scope.ServiceProvider.GetRequiredService<EventiDbContext>();
     db.Database.Migrate();
-
     await EventiDbSeeder.SeedAsync(scope.ServiceProvider);
 }
 
-if (app.Environment.IsDevelopment())
+app.UseSwagger();
+app.UseSwaggerUI(c =>
 {
-    app.UseSwagger();
-    app.UseSwaggerUI(c =>
-    {
-        c.SwaggerEndpoint("/swagger/v1/swagger.json", "Eventi API v1");
-        c.RoutePrefix = string.Empty;
-    });
-}
+    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Eventi API v1");
+});
 
 app.UseHttpsRedirection();
 app.UseCors("AllowAll");
